@@ -18,8 +18,8 @@ public class BoxBall
     private int yPosition;
     private final int groundPosition;      // y position of ground
     private Canvas canvas;
-    private final static int Y_SPEED = 1;               
-    private final static int X_SPEED = 1;
+    private int ySpeed;               
+    private int xSpeed;
 
     public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor,
     int groundPos, Canvas drawingCanvas)
@@ -30,6 +30,8 @@ public class BoxBall
         color = ballColor;
         groundPosition = groundPos;
         canvas = drawingCanvas;
+        ySpeed = 1;
+        xSpeed = 1;
     }
 
     /**
@@ -48,6 +50,26 @@ public class BoxBall
     {
         canvas.eraseCircle(xPosition, yPosition, diameter);
     } 
+    
+        public void move()
+    {
+        // remove from canvas at the current position
+        erase();
+            
+        // compute new position
+
+        yPosition += ySpeed;
+        xPosition += ySpeed;
+
+        // check if it has hit the ground
+        if(yPosition >= (groundPosition - diameter)) {
+            yPosition = (int)(groundPosition - diameter);
+            ySpeed = -ySpeed; 
+        }
+
+        // draw again at new position
+        draw();
+    }   
     
         /**
      * return the horizontal position of this ball
