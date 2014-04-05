@@ -40,5 +40,13 @@ public class BoxBall
         canvas.setForegroundColor(color);
         canvas.fillCircle(xPosition, yPosition, diameter);
     }
+    
+        /**
+     * Erase this ball at its current position.
+     **/
+    public void erase()
+    {
+        canvas.eraseCircle(xPosition, yPosition, diameter);
+    } 
 
 }
