@@ -55,4 +55,18 @@ public class BallDemo
             }
         }
     }
+
+    public void boxBounce(){
+        int ground = 400;   // position of the ground line
+        int techo = 100;
+        int paredDerecha = 550;
+        int paredIzquierda = 50;
+
+        myCanvas.setVisible(true);
+
+        myCanvas.drawLine(paredIzquierda, ground, paredDerecha, ground);        
+        myCanvas.drawLine(paredIzquierda, techo, paredDerecha, techo);
+        myCanvas.drawLine(paredIzquierda, techo, paredIzquierda, ground);
+        myCanvas.drawLine(paredDerecha, ground, paredDerecha, techo);
+    }
 }
