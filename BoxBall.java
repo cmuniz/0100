@@ -68,9 +68,13 @@ public class BoxBall
         xPosition += ySpeed;
 
         // check if it has hit the ground
-        if(yPosition >= (groundPosition - diameter)) {
-            yPosition = (int)(groundPosition - diameter);
+        if((yPosition >= (groundPosition - diameter)) || (yPosition <= (techoPosition - diameter)))
+        {
             ySpeed = -ySpeed; 
+        }
+        if((xPosition >= (paredDerechaPosition - diameter)) || (xPosition <= (paredIzquierdaPosition - diameter)))
+        {
+            xSpeed = -ySpeed; 
         }
 
         // draw again at new position

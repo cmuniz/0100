@@ -75,7 +75,7 @@ public class BallDemo
         for(int i = 0; i < numBalls; i++){
             Color color = new Color(rnd.nextFloat(), rnd.nextFloat(), rnd.nextFloat());
             balls.add(new BoxBall((rnd.nextInt(450)+75), (rnd.nextInt(250)+125), rnd.nextInt(20)+5,
-                    color, ground, myCanvas));
+                    color, ground, techo, paredDerecha, paredIzquierda, myCanvas));
             balls.get(i).draw();
         }
     }
