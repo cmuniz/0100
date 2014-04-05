@@ -56,7 +56,7 @@ public class BallDemo
         }
     }
 
-    public void boxBounce(){
+    public void boxBounce(int numBalls){
         int ground = 400;   // position of the ground line
         int techo = 100;
         int paredDerecha = 550;
@@ -68,5 +68,15 @@ public class BallDemo
         myCanvas.drawLine(paredIzquierda, techo, paredDerecha, techo);
         myCanvas.drawLine(paredIzquierda, techo, paredIzquierda, ground);
         myCanvas.drawLine(paredDerecha, ground, paredDerecha, techo);
+
+        Random rnd = new Random();
+
+        ArrayList<BoxBall> balls = new ArrayList<>();
+        for(int i = 0; i < numBalls; i++){
+            Color color = new Color(rnd.nextFloat(), rnd.nextFloat(), rnd.nextFloat());
+            balls.add(new BoxBall((rnd.nextInt(450)+75), (rnd.nextInt(250)+125), rnd.nextInt(20)+5,
+                    color, ground, myCanvas));
+            balls.get(i).draw();
+        }
     }
 }
