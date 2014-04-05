@@ -16,19 +16,25 @@ public class BoxBall
     private int diameter;
     private int xPosition;
     private int yPosition;
-    private final int groundPosition;      // y position of ground
+    private final int groundPosition; 
+    private final int techoPosition; 
+    private final int paredDerechaPosition; 
+    private final int paredIzquierdaPosition; 
     private Canvas canvas;
     private int ySpeed;               
     private int xSpeed;
 
     public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor,
-    int groundPos, Canvas drawingCanvas)
+    int groundPos, int techoPos, int paredDerechaPos, int paredIzquierdaPos,Canvas drawingCanvas)
     {
         xPosition = xPos;
         yPosition = yPos;
         diameter = ballDiameter;
         color = ballColor;
         groundPosition = groundPos;
+        techoPosition = techoPos;
+        paredDerechaPosition = paredDerechaPos;
+        paredIzquierdaPosition = paredIzquierdaPos;
         canvas = drawingCanvas;
         ySpeed = 1;
         xSpeed = 1;
@@ -42,20 +48,20 @@ public class BoxBall
         canvas.setForegroundColor(color);
         canvas.fillCircle(xPosition, yPosition, diameter);
     }
-    
-        /**
+
+    /**
      * Erase this ball at its current position.
      **/
     public void erase()
     {
         canvas.eraseCircle(xPosition, yPosition, diameter);
     } 
-    
-        public void move()
+
+    public void move()
     {
         // remove from canvas at the current position
         erase();
-            
+
         // compute new position
 
         yPosition += ySpeed;
@@ -70,8 +76,8 @@ public class BoxBall
         // draw again at new position
         draw();
     }   
-    
-        /**
+
+    /**
      * return the horizontal position of this ball
      */
     public int getXPosition()
