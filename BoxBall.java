@@ -1,3 +1,5 @@
+import java.awt.*;
+import java.awt.geom.*;
 
 /**
  * Write a description of class BoxBall here.
@@ -8,9 +10,26 @@
 public class BoxBall
 {
 
-    public BoxBall()
-    {
+    private int ballDegradation = 2;
+    private Ellipse2D.Double circle;
+    private Color color;
+    private int diameter;
+    private int xPosition;
+    private int yPosition;
+    private final int groundPosition;      // y position of ground
+    private Canvas canvas;
+    private final static int Y_SPEED = 1;               
+    private final static int X_SPEED = 1;
 
+    public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor,
+                        int groundPos, Canvas drawingCanvas)
+    {
+        xPosition = xPos;
+        yPosition = yPos;
+        diameter = ballDiameter;
+        color = ballColor;
+        groundPosition = groundPos;
+        canvas = drawingCanvas;
     }
 
 }
