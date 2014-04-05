@@ -48,5 +48,21 @@ public class BoxBall
     {
         canvas.eraseCircle(xPosition, yPosition, diameter);
     } 
+    
+        /**
+     * return the horizontal position of this ball
+     */
+    public int getXPosition()
+    {
+        return xPosition;
+    }
+
+    /**
+     * return the vertical position of this ball
+     */
+    public int getYPosition()
+    {
+        return yPosition;
+    }
 
 }
