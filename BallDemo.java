@@ -74,9 +74,17 @@ public class BallDemo
         ArrayList<BoxBall> balls = new ArrayList<>();
         for(int i = 0; i < numBalls; i++){
             Color color = new Color(rnd.nextFloat(), rnd.nextFloat(), rnd.nextFloat());
-            balls.add(new BoxBall((rnd.nextInt(450)+75), (rnd.nextInt(250)+125), rnd.nextInt(20)+5,
-                    color, ground, techo, paredDerecha, paredIzquierda, myCanvas));
+            balls.add(new BoxBall((rnd.nextInt(450)+75), (rnd.nextInt(250)+125), rnd.nextInt(40)+10,
+                    color, rnd.nextBoolean(), rnd.nextBoolean(), ground, techo, paredDerecha, paredIzquierda, myCanvas));
             balls.get(i).draw();
+        }
+        
+                
+        while(true) {
+            myCanvas.wait(50);           // small delay
+            for(int i = 0; i < balls.size(); i++){
+                balls.get(i).move();
+            }
         }
     }
 }

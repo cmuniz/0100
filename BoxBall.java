@@ -9,8 +9,6 @@ import java.awt.geom.*;
  */
 public class BoxBall
 {
-
-    private int ballDegradation = 2;
     private Ellipse2D.Double circle;
     private Color color;
     private int diameter;
@@ -24,7 +22,7 @@ public class BoxBall
     private int ySpeed;               
     private int xSpeed;
 
-    public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor,
+    public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor, boolean ySpd, boolean xSpd,
     int groundPos, int techoPos, int paredDerechaPos, int paredIzquierdaPos,Canvas drawingCanvas)
     {
         xPosition = xPos;
@@ -36,8 +34,18 @@ public class BoxBall
         paredDerechaPosition = paredDerechaPos;
         paredIzquierdaPosition = paredIzquierdaPos;
         canvas = drawingCanvas;
-        ySpeed = 1;
-        xSpeed = 1;
+        if(ySpd){
+            ySpeed = 1;
+        }
+        else {
+            ySpeed = -1;
+        }
+        if(xSpd){
+            xSpeed = 1;
+        }
+        else {
+            xSpeed = -1;
+        }
     }
 
     /**
@@ -65,16 +73,17 @@ public class BoxBall
         // compute new position
 
         yPosition += ySpeed;
-        xPosition += ySpeed;
+        xPosition += xSpeed;
 
         // check if it has hit the ground
-        if((yPosition >= (groundPosition - diameter)) || (yPosition <= (techoPosition - diameter)))
+        if((yPosition >= (groundPosition - diameter)) || (yPosition <= techoPosition ))
         {
             ySpeed = -ySpeed; 
         }
-        if((xPosition >= (paredDerechaPosition - diameter)) || (xPosition <= (paredIzquierdaPosition - diameter)))
+
+        if((xPosition >= (paredDerechaPosition - diameter)) || (xPosition <= paredIzquierdaPosition ))
         {
-            xSpeed = -ySpeed; 
+            xSpeed = -xSpeed; 
         }
 
         // draw again at new position
