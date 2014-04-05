@@ -22,7 +22,7 @@ public class BoxBall
     private final static int X_SPEED = 1;
 
     public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor,
-                        int groundPos, Canvas drawingCanvas)
+    int groundPos, Canvas drawingCanvas)
     {
         xPosition = xPos;
         yPosition = yPos;
@@ -30,6 +30,15 @@ public class BoxBall
         color = ballColor;
         groundPosition = groundPos;
         canvas = drawingCanvas;
+    }
+
+    /**
+     * Draw this ball at its current position onto the canvas.
+     **/
+    public void draw()
+    {
+        canvas.setForegroundColor(color);
+        canvas.fillCircle(xPosition, yPosition, diameter);
     }
 
 }
